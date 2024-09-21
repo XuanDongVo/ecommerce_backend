@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tutorial.ecommerce_backend.dao.InvetoryDao;
-import tutorial.ecommerce_backend.model.Inventory;
+import tutorial.ecommerce_backend.entity.Inventory;
 
 @Service
 public class InventoryService {

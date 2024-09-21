@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import tutorial.ecommerce_backend.api.DTO.SizeDTO;
 import tutorial.ecommerce_backend.dao.SizeDao;
-import tutorial.ecommerce_backend.model.Size;
+import tutorial.ecommerce_backend.entity.Size;
 
 @Service
 public class SizeService {

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import tutorial.ecommerce_backend.model.SubCategory;
+import tutorial.ecommerce_backend.entity.SubCategory;
 
 public interface SubCategoryDao extends JpaRepository<SubCategory, Long> {
 	

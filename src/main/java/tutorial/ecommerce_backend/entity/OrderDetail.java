@@ -1,29 +1,28 @@
-package tutorial.ecommerce_backend.model;
+package tutorial.ecommerce_backend.entity;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "detail_cart")
-public class DetailCart {
+@Table(name = "order_detail")
+public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id", nullable = false)
-    private Cart cart;
+    @JoinColumn(name = "order_id", nullable = false)
+    private WebOrder order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
+
+    @Column(name = "quantity")
+    private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "size_id", nullable = false)
     private Size size;
-
-    @Column(name = "quantity")
-    private int quantity;
 
     // Getters and setters
     public Long getId() {
@@ -34,12 +33,12 @@ public class DetailCart {
         this.id = id;
     }
 
-    public Cart getCart() {
-        return cart;
+    public WebOrder getOrder() {
+        return order;
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setOrder(WebOrder order) {
+        this.order = order;
     }
 
     public Product getProduct() {
@@ -50,19 +49,19 @@ public class DetailCart {
         this.product = product;
     }
 
-    public Size getSize() {
-        return size;
-    }
-
-    public void setSize(Size size) {
-        this.size = size;
-    }
-
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
     }
 }

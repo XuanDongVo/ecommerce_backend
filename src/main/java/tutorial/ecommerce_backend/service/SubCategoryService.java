@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tutorial.ecommerce_backend.dao.SubCategoryDao;
-import tutorial.ecommerce_backend.model.SubCategory;
+import tutorial.ecommerce_backend.entity.SubCategory;
 
 @Service
 public class SubCategoryService {

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import tutorial.ecommerce_backend.api.DTO.SizeDTO;
-import tutorial.ecommerce_backend.model.Size;
+import tutorial.ecommerce_backend.entity.Size;
 import tutorial.ecommerce_backend.service.SizeService;
 
 @RestController

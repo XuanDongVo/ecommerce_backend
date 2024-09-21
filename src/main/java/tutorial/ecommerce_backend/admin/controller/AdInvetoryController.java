@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import tutorial.ecommerce_backend.model.Inventory;
+import tutorial.ecommerce_backend.entity.Inventory;
 import tutorial.ecommerce_backend.service.InventoryService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

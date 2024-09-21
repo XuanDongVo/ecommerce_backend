@@ -1,0 +1,60 @@
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: springdb
+-- ------------------------------------------------------
+-- Server version	8.0.13
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `order_detail`
+--
+
+DROP TABLE IF EXISTS `order_detail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `order_detail` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `quantity` int(11) DEFAULT NULL,
+  `order_id` bigint(20) NOT NULL,
+  `product_id` bigint(20) NOT NULL,
+  `size_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKl4jpywy7apsi5dai9c7w82kk` (`order_id`),
+  KEY `FKb8bg2bkty0oksa3wiq5mp5qnc` (`product_id`),
+  KEY `FKasuecybhagr9jmcjppi3mubiq` (`size_id`),
+  CONSTRAINT `FKasuecybhagr9jmcjppi3mubiq` FOREIGN KEY (`size_id`) REFERENCES `size` (`id`),
+  CONSTRAINT `FKb8bg2bkty0oksa3wiq5mp5qnc` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  CONSTRAINT `FKl4jpywy7apsi5dai9c7w82kk` FOREIGN KEY (`order_id`) REFERENCES `web_order` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+LOCK TABLES `order_detail` WRITE;
+/*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
+INSERT INTO `order_detail` VALUES (14,1,14,54,12),(15,1,15,50,10),(21,1,17,46,10),(22,1,17,46,9),(23,1,18,65,10),(24,1,18,64,10),(27,37,21,55,10),(28,12,22,44,9),(29,3,22,64,10),(30,5,23,44,9),(31,5,24,44,9),(32,3,25,47,11),(33,6,26,47,11),(34,6,27,47,11),(35,6,28,47,11),(36,6,29,47,11),(37,4,30,47,11),(38,1,31,47,11),(39,13,32,43,9),(40,10,32,54,9),(41,8,32,54,12),(42,13,33,43,9),(43,10,33,54,9),(44,8,33,54,12),(45,13,34,43,9),(46,10,34,54,9),(47,8,34,54,12),(48,13,35,43,9),(49,10,35,54,9),(50,8,35,54,12),(51,13,36,43,9),(52,10,36,54,9),(53,8,36,54,12),(54,13,37,43,9),(55,10,37,54,9),(56,8,37,54,12),(57,10,38,54,9),(58,8,38,54,12),(59,8,39,54,12),(60,10,39,54,9),(61,1,40,47,12),(62,7,41,50,11),(63,7,42,50,11),(64,7,43,50,11),(65,7,44,50,11),(66,7,45,50,11),(67,7,46,50,11),(68,7,47,50,11),(69,7,48,50,11),(70,7,49,50,11),(71,7,49,50,11),(72,7,50,50,11),(73,7,51,50,11),(74,7,52,50,11),(75,7,53,50,11),(76,7,54,50,11),(77,7,55,50,11),(78,9,55,54,9),(79,7,56,50,11),(80,9,56,54,9),(81,7,57,50,11),(82,9,57,54,9),(83,7,58,50,11),(84,9,58,54,9),(85,16,59,57,10),(86,4,60,45,11),(87,18,61,41,9),(88,18,61,45,12),(89,1,62,41,9),(90,18,62,45,12),(91,1,63,77,10),(92,1,63,61,12),(93,1,64,52,9),(94,3,65,52,11),(95,3,65,50,11),(96,1,66,52,11),(97,3,66,50,11),(98,1,67,50,11),(99,1,67,77,10),(100,1,68,65,10),(101,10,69,76,10),(102,1,70,76,9),(103,1,70,76,10),(104,1,71,47,12),(105,5,72,50,10),(106,1,72,50,11),(107,5,73,50,10);
+/*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-09-21 22:36:06

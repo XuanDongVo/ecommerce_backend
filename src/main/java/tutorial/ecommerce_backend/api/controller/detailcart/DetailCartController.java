@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tutorial.ecommerce_backend.api.DTO.CartDetailRequest;
 import tutorial.ecommerce_backend.api.DTO.DetailCartDto;
-import tutorial.ecommerce_backend.model.DetailCart;
+import tutorial.ecommerce_backend.entity.DetailCart;
 import tutorial.ecommerce_backend.service.DetailCartService;
 
 @RestController

@@ -20,15 +20,15 @@ import tutorial.ecommerce_backend.dao.InvetoryDao;
 import tutorial.ecommerce_backend.dao.LocalUserDao;
 import tutorial.ecommerce_backend.dao.ProductDao;
 import tutorial.ecommerce_backend.dao.SizeDao;
+import tutorial.ecommerce_backend.entity.Cart;
+import tutorial.ecommerce_backend.entity.DetailCart;
+import tutorial.ecommerce_backend.entity.Inventory;
+import tutorial.ecommerce_backend.entity.LocalUser;
+import tutorial.ecommerce_backend.entity.Product;
+import tutorial.ecommerce_backend.entity.Size;
 import tutorial.ecommerce_backend.exception.DetailCartNotFoundException;
-import tutorial.ecommerce_backend.model.Cart;
-import tutorial.ecommerce_backend.model.DetailCart;
-import tutorial.ecommerce_backend.model.Inventory;
-import tutorial.ecommerce_backend.model.LocalUser;
-import tutorial.ecommerce_backend.model.Product;
-import tutorial.ecommerce_backend.model.Size;
+import tutorial.ecommerce_backend.jwt.JWTService;
 import tutorial.ecommerce_backend.pagination.PostPageRequest;
-import tutorial.ecommerce_backend.security.service.JWTService;
 
 @Service
 public class DetailCartService {
@@ -49,18 +49,14 @@ public class DetailCartService {
 	private InvetoryDao invetoryDao;
 
 	private Cart getCartByToken(String token) {
-		String userName = jwtService.getUserName(token);
-		if (userName == null) {
-			throw new UsernameNotFoundException("User not found for token: " + token);
-		}
-
-		// Lấy người dùng từ cơ sở dữ liệu
-		LocalUser user = userDao.findByUsername(userName)
-				.orElseThrow(() -> new UsernameNotFoundException("User not found: " + userName));
+		LocalUser user = jwtService.getUsernameByToken(token);
+			if(user == null) {
+				return null;
+			}
 
 		// Lấy giỏ hàng của người dùng từ cơ sở dữ liệu
 		Cart cart = cartDao.findByUser(user)
-				.orElseThrow(() -> new RuntimeException("Cart not found for user: " + userName));
+				.orElseThrow(() -> new RuntimeException("Cart not found for user: " ));
 
 		return cart;
 	}

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import tutorial.ecommerce_backend.model.OrderDetail;
+import tutorial.ecommerce_backend.entity.OrderDetail;
 import tutorial.ecommerce_backend.service.DetailOrderService;
 
 

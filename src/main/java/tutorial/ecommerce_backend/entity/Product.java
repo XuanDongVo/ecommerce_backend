@@ -1,4 +1,4 @@
-package tutorial.ecommerce_backend.model;
+package tutorial.ecommerce_backend.entity;
 
 import java.util.Set;
 

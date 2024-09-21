@@ -10,10 +10,10 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import tutorial.ecommerce_backend.model.Cart;
-import tutorial.ecommerce_backend.model.DetailCart;
-import tutorial.ecommerce_backend.model.Product;
-import tutorial.ecommerce_backend.model.Size;
+import tutorial.ecommerce_backend.entity.Cart;
+import tutorial.ecommerce_backend.entity.DetailCart;
+import tutorial.ecommerce_backend.entity.Product;
+import tutorial.ecommerce_backend.entity.Size;
 
 public interface DetailCartDao extends JpaRepository<DetailCart, Long> {
 	  List<DetailCart> findByCart(Cart cart); // Renamed method

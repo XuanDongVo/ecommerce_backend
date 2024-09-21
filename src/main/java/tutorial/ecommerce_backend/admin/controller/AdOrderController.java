@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import tutorial.ecommerce_backend.model.WebOrder;
+import tutorial.ecommerce_backend.entity.WebOrder;
 import tutorial.ecommerce_backend.service.WebOrderService;
 
 @RestController

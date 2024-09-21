@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import tutorial.ecommerce_backend.api.DTO.CategoryDTO;
 import tutorial.ecommerce_backend.dao.CategoryDao;
-import tutorial.ecommerce_backend.model.Category;
+import tutorial.ecommerce_backend.entity.Category;
 
 @Service
 public class CategoryService {

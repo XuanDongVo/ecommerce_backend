@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import tutorial.ecommerce_backend.model.SubCategory;
+import tutorial.ecommerce_backend.entity.SubCategory;
 import tutorial.ecommerce_backend.service.SubCategoryService;
 
 @RestController

@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import tutorial.ecommerce_backend.dao.LocalUserDao;
-import tutorial.ecommerce_backend.model.LocalUser;
+import tutorial.ecommerce_backend.entity.LocalUser;
 
 @Service
 public class CustomUserDetailService implements UserDetailsService {
@@ -23,7 +23,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<LocalUser> opUser = userDao.findByUsername(username);
+        Optional<LocalUser> opUser = userDao.findByEmailOrUsername(username, username);
         if (opUser.isPresent()) {
             LocalUser user = opUser.get();
             // Chuyển danh sách vai trò thành danh sách SimpleGrantedAuthority

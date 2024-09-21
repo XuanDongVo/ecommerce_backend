@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import tutorial.ecommerce_backend.api.DTO.ProductDTO;
-import tutorial.ecommerce_backend.model.Product;
+import tutorial.ecommerce_backend.entity.Product;
 import tutorial.ecommerce_backend.service.ProductService;
 
 @RestController

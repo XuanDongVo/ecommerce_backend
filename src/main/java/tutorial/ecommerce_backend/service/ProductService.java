@@ -24,10 +24,10 @@ import tutorial.ecommerce_backend.dao.InvetoryDao;
 import tutorial.ecommerce_backend.dao.ProductDao;
 import tutorial.ecommerce_backend.dao.SizeDao;
 import tutorial.ecommerce_backend.dao.SubCategoryDao;
-import tutorial.ecommerce_backend.model.Inventory;
-import tutorial.ecommerce_backend.model.Product;
-import tutorial.ecommerce_backend.model.Size;
-import tutorial.ecommerce_backend.model.SubCategory;
+import tutorial.ecommerce_backend.entity.Inventory;
+import tutorial.ecommerce_backend.entity.Product;
+import tutorial.ecommerce_backend.entity.Size;
+import tutorial.ecommerce_backend.entity.SubCategory;
 import tutorial.ecommerce_backend.pagination.PostPageRequest;
 
 @Service

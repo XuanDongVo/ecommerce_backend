@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import tutorial.ecommerce_backend.api.DTO.CategoryDTO;
-import tutorial.ecommerce_backend.model.Category;
+import tutorial.ecommerce_backend.entity.Category;
 import tutorial.ecommerce_backend.service.CategoryService;
 
 @RestController

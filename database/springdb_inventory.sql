@@ -1,0 +1,57 @@
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: springdb
+-- ------------------------------------------------------
+-- Server version	8.0.13
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `inventory`
+--
+
+DROP TABLE IF EXISTS `inventory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `inventory` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `quantity` int(11) DEFAULT NULL,
+  `product_id` bigint(20) NOT NULL,
+  `size_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UKceftgdl2p4uov7skt5jcfekt` (`product_id`,`size_id`),
+  KEY `FKohvnvkcpxk7p3oemffjex3j0g` (`size_id`),
+  CONSTRAINT `FKohvnvkcpxk7p3oemffjex3j0g` FOREIGN KEY (`size_id`) REFERENCES `size` (`id`),
+  CONSTRAINT `FKp7gj4l80fx8v0uap3b2crjwp5` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inventory`
+--
+
+LOCK TABLES `inventory` WRITE;
+/*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
+INSERT INTO `inventory` VALUES (16,7,33,11),(17,20,33,9),(18,20,34,9),(19,20,34,12),(21,2,35,10),(22,2,36,10),(23,2,36,12),(24,2,36,9),(25,6,37,9),(26,6,37,11),(27,6,38,12),(28,6,38,11),(29,6,39,11),(30,6,39,9),(31,6,39,10),(32,6,39,12),(33,6,40,12),(34,8,40,9),(35,8,40,10),(36,8,41,10),(37,7,41,9),(38,8,42,11),(39,8,42,12),(40,8,43,12),(41,8,43,9),(42,0,44,9),(43,7,44,11),(44,8,45,12),(45,4,45,11),(46,6,46,9),(47,6,46,10),(48,8,46,11),(49,1,47,11),(50,0,47,12),(51,2,49,12),(52,1,50,10),(53,0,50,11),(54,2,51,11),(55,2,51,9),(56,1,52,9),(57,1,52,11),(61,1,54,12),(62,2,54,9),(63,4,54,10),(64,4,55,10),(65,5,55,11),(66,5,56,11),(67,5,56,9),(68,5,57,9),(69,5,57,10),(70,4,57,11),(71,5,57,12),(72,5,58,12),(73,5,59,9),(74,5,59,10),(75,15,60,10),(76,15,60,11),(77,15,61,11),(78,13,61,12),(79,15,62,12),(80,15,62,9),(81,15,62,10),(82,15,63,10),(83,15,63,11),(84,10,64,9),(85,6,64,10),(86,8,65,10),(87,45,66,10),(90,10,69,9),(91,10,69,10),(92,10,69,11),(93,10,70,11),(94,10,70,12),(95,10,70,10),(96,15,71,9),(97,15,71,12),(98,15,72,12),(99,15,72,11),(100,15,72,10),(101,15,73,9),(102,2,73,10),(103,1,73,12),(104,1,74,12),(105,1,75,10),(106,1,75,9),(107,5,75,12),(108,4,76,9),(109,4,76,10);
+/*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-09-21 22:36:07

@@ -1,4 +1,4 @@
-package tutorial.ecommerce_backend.model;
+package tutorial.ecommerce_backend.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,10 +30,23 @@ public class LocalUser {
 
 	@Column(name = "email", nullable = false, unique = true, length = 320)
 	private String email;
+	
+	@Column(name = "refresh_token" , columnDefinition = "LONGTEXT")
+	private String refreshToken;
 
 	@ManyToOne()
 	@JoinColumn(name = "role_id", nullable = false)
 	private Role role;
+	
+	
+
+	public String getRefreshToken() {
+		return refreshToken;
+	}
+
+	public void setRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
+	}
 
 	public Role getRole() {
 		return role;

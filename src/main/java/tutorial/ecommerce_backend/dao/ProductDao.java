@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
-import tutorial.ecommerce_backend.model.Product;
-import tutorial.ecommerce_backend.model.SubCategory;
+import tutorial.ecommerce_backend.entity.Product;
+import tutorial.ecommerce_backend.entity.SubCategory;
 
 public interface ProductDao extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
 	public Optional<Product> findByName(String name);

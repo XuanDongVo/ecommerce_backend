@@ -1,6 +1,6 @@
 package tutorial.ecommerce_backend.api.DTO;
 
-import tutorial.ecommerce_backend.model.Product;
+import tutorial.ecommerce_backend.entity.Product;
 
 public class CartDetailRequest {
 	private Product product;

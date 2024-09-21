@@ -20,15 +20,15 @@ import tutorial.ecommerce_backend.dao.LocalUserDao;
 import tutorial.ecommerce_backend.dao.ProductDao;
 import tutorial.ecommerce_backend.dao.SizeDao;
 import tutorial.ecommerce_backend.dao.WebOrderDao;
-import tutorial.ecommerce_backend.model.Cart;
-import tutorial.ecommerce_backend.model.DetailCart;
-import tutorial.ecommerce_backend.model.Inventory;
-import tutorial.ecommerce_backend.model.LocalUser;
-import tutorial.ecommerce_backend.model.OrderDetail;
-import tutorial.ecommerce_backend.model.Product;
-import tutorial.ecommerce_backend.model.Size;
-import tutorial.ecommerce_backend.model.WebOrder;
-import tutorial.ecommerce_backend.security.service.JWTService;
+import tutorial.ecommerce_backend.entity.Cart;
+import tutorial.ecommerce_backend.entity.DetailCart;
+import tutorial.ecommerce_backend.entity.Inventory;
+import tutorial.ecommerce_backend.entity.LocalUser;
+import tutorial.ecommerce_backend.entity.OrderDetail;
+import tutorial.ecommerce_backend.entity.Product;
+import tutorial.ecommerce_backend.entity.Size;
+import tutorial.ecommerce_backend.entity.WebOrder;
+import tutorial.ecommerce_backend.jwt.JWTService;
 
 @Service
 public class WebOrderService {
@@ -114,15 +114,13 @@ public class WebOrderService {
 	@Transactional
 	public List<String> processOrderDetails(String token, double price) {
 	    // Lấy tên người dùng từ token
-	    String username = jwtService.getUserName(token);
-	    LocalUser user = userDao.findByUsername(username)
-	            .orElseThrow(() -> new UsernameNotFoundException("Cannot find user: " + username));
+		 LocalUser user = jwtService.getUsernameByToken(token);
 
 	    WebOrder order = createOrder(token, price, user);
 
 	    // Lấy giỏ hàng của người dùng
 	    Cart cart = cartDao.findByUser(user)
-	            .orElseThrow(() -> new RuntimeException("Cart not found for user: " + username));
+	            .orElseThrow(() -> new RuntimeException("Cart not found for user: " ));
 
 	    // Lấy chi tiết giỏ hàng
 	    List<DetailCart> detailCarts = detailCartDao.findByCart(cart);
@@ -140,16 +138,15 @@ public class WebOrderService {
 	//xử lí khi người dùng chỉ chọn vài sản phẩm để mua trong cartdetail
 	@Transactional
 	public List<String> processOrderDetail(String token, double price, List<DetailCartDto> detailCarts) {
-		// Lấy tên người dùng từ token
-		String username = jwtService.getUserName(token);
-		LocalUser user = userDao.findByUsername(username)
-				.orElseThrow(() -> new UsernameNotFoundException("Cannot find user: " + username));
+		 // Lấy tên người dùng từ token
+		 LocalUser user = jwtService.getUsernameByToken(token);
+
 
 		WebOrder order = createOrder(token, price, user);
 
 		// Lấy giỏ hàng của người dùng
 		Cart cart = cartDao.findByUser(user)
-				.orElseThrow(() -> new RuntimeException("Cart not found for user: " + username));
+				.orElseThrow(() -> new RuntimeException("Cart not found for user: " + user.getUsername()));
 
 		// Xử lý chi tiết đơn hàng
 		return processOrderItems(order, detailCarts, cart);

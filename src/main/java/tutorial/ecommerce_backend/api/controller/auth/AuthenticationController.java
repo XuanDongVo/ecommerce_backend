@@ -1,6 +1,5 @@
 package tutorial.ecommerce_backend.api.controller.auth;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.naming.AuthenticationException;
@@ -36,8 +35,6 @@ public class AuthenticationController {
 	@Autowired
 	private UserService userService;
 
-	@Autowired
-	private AuthenticationManager authenticationManager;
 
 	@PostMapping("/register")
 	public ResponseEntity registerUser(@Valid @RequestBody RegistrationBody registrationBody) {
@@ -51,36 +48,16 @@ public class AuthenticationController {
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<?> loginUser(@Valid @RequestBody LoginBody loginBody, HttpServletResponse response) throws AuthenticationException {
-
-	    Authentication authentication;
-	    authentication = authenticationManager.authenticate(
-		        new UsernamePasswordAuthenticationToken(loginBody.getEmailOrUserName(), loginBody.getPassword()));
-	    
-	    SecurityContextHolder.getContext().setAuthentication(authentication);
-
-	    String jwt = userService.loginUser(loginBody);
-	    
-	    if (jwt == null) {
-	        Map<String, Object> errorResponse = new HashMap<>();
-	        errorResponse.put("status", HttpStatus.BAD_REQUEST.value());
-	        errorResponse.put("message", "Unable to generate JWT.");
-	        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
-	    }
-
-	    // Lưu JWT vào cookie
-	    ResponseCookie cookie = ResponseCookie.from("jwt", jwt)
-//	            .httpOnly(true) // Bảo mật cookie, không cho phép truy cập từ JavaScript
-	            .secure(true) // Đặt true cho môi trường sản xuất (HTTPS)
-	            .path("/") // Cookie có hiệu lực cho toàn bộ ứng dụng
-	            .maxAge(60 * 60) // 1 giờ
-	            .build();
-	    response.addHeader("Set-Cookie", cookie.toString());
-
-	    // Tạo phản hồi thành công với JWT
-	    LoginResponse loginResponse = new LoginResponse();
-	    loginResponse.setJwt(jwt);
-	    return ResponseEntity.ok(loginResponse);
+	public ResponseEntity<LoginResponse> loginUser(@Valid @RequestBody LoginBody loginBody , HttpServletResponse response)  {
+		
+		try {
+			 LoginResponse loginResponse =  userService.loginUser(loginBody ,response);
+			 return ResponseEntity.ok(loginResponse);
+		} catch (Exception e) {
+			System.out.println("error " + e );
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		
 	}
 
 

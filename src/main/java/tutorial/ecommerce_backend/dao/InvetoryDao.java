@@ -7,9 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import tutorial.ecommerce_backend.model.Inventory;
-import tutorial.ecommerce_backend.model.Product;
-import tutorial.ecommerce_backend.model.Size;
+import tutorial.ecommerce_backend.entity.Inventory;
+import tutorial.ecommerce_backend.entity.Product;
+import tutorial.ecommerce_backend.entity.Size;
 
 public interface InvetoryDao extends JpaRepository<Inventory, Long> {
 	List<Inventory> findByProduct(Product product);

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import tutorial.ecommerce_backend.dao.DetailOrderDao;
 import tutorial.ecommerce_backend.dao.WebOrderDao;
-import tutorial.ecommerce_backend.model.OrderDetail;
-import tutorial.ecommerce_backend.model.WebOrder;
+import tutorial.ecommerce_backend.entity.OrderDetail;
+import tutorial.ecommerce_backend.entity.WebOrder;
 
 @Service
 public class DetailOrderService {
